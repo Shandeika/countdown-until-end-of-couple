@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Время до конца пар</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="noindex, nofollow, noarchive, noyaca" name="robots">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Тут можно узнать сколько осталось до конца пар" name="description">
+    <meta content="Время до конца пар" property="og:title">
+    <meta content="Тут можно узнать сколько осталось до конца пар" property="og:description">
+    <meta content="website" property="og:type">
+    <meta content="https://couplestimer.shandytech.ru" property="og:url">
+    <meta name="og:image:height" content="628">
+    <meta name="og:image:width" content="1200">
+    <meta content="ru_RU" property="og:locale">
+    <meta content="#6c6bfc" name="theme-color">
+    <meta name="msapplication-TileColor" content="#6c6bfc">
+    <link href="https://fonts.googleapis.com/" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect">
+    <style>
+        @import "styles.css";
+    </style>
+</head>
+<body>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(registration => console.log('Service Worker registered with scope:', registration.scope))
+            .catch(error => console.error('Service Worker registration failed:', error));
+    }
+</script>
+
+<div class="content">
+    <div class="title" id="event"></div>
+    <div class="subtitle" id="countdown"></div>
+</div>
+
+<script src="countdown.js"></script>
+</body>
+</html>
