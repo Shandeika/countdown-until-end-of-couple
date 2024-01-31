@@ -127,12 +127,12 @@ class Schedule {
         let string = '';
 
         if (hours > 0) {
-            string += `${hours} ${this.wordForms.getWordForm(hours, 'hours')} `;
+            string += `<nobr>${hours} ${this.wordForms.getWordForm(hours, 'hours')}</nobr> `;
         }
         if (minutes > 0) {
-            string += `${minutes} ${this.wordForms.getWordForm(minutes, 'minutes')} `;
+            string += `<nobr>${minutes} ${this.wordForms.getWordForm(minutes, 'minutes')}</nobr> `;
         }
-        string += `${seconds} ${this.wordForms.getWordForm(seconds, 'seconds')}`;
+        string += `<nobr>${seconds} ${this.wordForms.getWordForm(seconds, 'seconds')}</nobr>`;
 
         return string;
     }
@@ -174,25 +174,25 @@ class Schedule {
                     break;
                 }
             }
-            this.eventElement.innerText = `Сейчас перемена между ${first_couple.couple_number} и ${second_couple.couple_number} парой`;
+            this.eventElement.innerHTML = `Сейчас перемена между ${first_couple.couple_number} и <nobr>${second_couple.couple_number} парой</nobr>`;
             let time = this.calculateTime(second_couple.startTimeToSeconds() - currentTime);
-            this.countdownElement.innerText = `До конца перемены ${time}`
+            this.countdownElement.innerHTML = `До конца перемены ${time}`
         } else if (couple.lesson_1.endTimeToSeconds() <= currentTime && couple.lesson_2.startTimeToSeconds() >= currentTime) {
-            this.eventElement.innerText = `Сейчас перемена между 1 и 2 уроком ${couple.couple_number} пары`;
+            this.eventElement.innerHTML = `Сейчас перемена между 1 и <nobr>2 уроком</nobr> <nobr>${couple.couple_number} пары</nobr>`;
             let time = this.calculateTime(couple.lesson_2.startTimeToSeconds() - currentTime);
-            this.countdownElement.innerText = `До конца перемены ${time}`
+            this.countdownElement.innerHTML = `До конца перемены ${time}`
         } else if (couple.endTimeToSeconds() <= currentTime && next_couple.startTimeToSeconds() >= currentTime) {
-            this.eventElement.innerText = `Сейчас перемена между ${couple.couple_number} и ${next_couple.couple_number} парой`;
+            this.eventElement.innerHTML = `Сейчас перемена между ${couple.couple_number} и <nobr>${next_couple.couple_number} парой</nobr>`;
             let time = this.calculateTime(next_couple.startTimeToSeconds() - currentTime);
-            this.countdownElement.innerText = `До конца перемены ${time}`
+            this.countdownElement.innerHTML = `До конца перемены ${time}`
         } else if (couple.lesson_1.startTimeToSeconds() <= currentTime && couple.lesson_1.endTimeToSeconds() >= currentTime) {
-            this.eventElement.innerText = `Сейчас 1 урок ${couple.couple_number} пары`;
+            this.eventElement.innerHTML = `Сейчас <nobr>1 урок</nobr> <nobr>${couple.couple_number} пары</nobr>`;
             let time = this.calculateTime(couple.lesson_1.endTimeToSeconds() - currentTime);
-            this.countdownElement.innerText = `До конца урока ${time}`
+            this.countdownElement.innerHTML = `До конца урока ${time}`
         } else if (couple.lesson_2.startTimeToSeconds() <= currentTime && couple.lesson_2.endTimeToSeconds() >= currentTime) {
-            this.eventElement.innerText = `Сейчас 2 урок ${couple.couple_number} пары`;
+            this.eventElement.innerHTML = `Сейчас <nobr>2 урок</nobr> <nobr>${couple.couple_number} пары</nobr>`;
             let time = this.calculateTime(couple.lesson_2.endTimeToSeconds() - currentTime);
-            this.countdownElement.innerText = `До конца урока ${time}`
+            this.countdownElement.innerHTML = `До конца урока ${time}`
         } else {
             console.error(`Ошибка при расчете. Текущее время: ${currentTime}, пара: ${couple}`);
         }
