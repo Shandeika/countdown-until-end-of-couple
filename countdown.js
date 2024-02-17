@@ -63,9 +63,9 @@ class Couple {
 class Schedule {
     constructor() {
         this.wordForms = new WordForms();
-        this.schedule = this.setupSchedule();
         this.countdownElement = document.getElementById('countdown');
         this.eventElement = document.getElementById('event');
+        this.schedule = this.setupSchedule();
         setInterval(this.checkSchedule.bind(this), 1000);
     }
     setupSchedule() {
